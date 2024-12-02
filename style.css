@@ -1,0 +1,12 @@
+/* Define the grid dimensions and borders */
+.gridRow{
+    border: 10px solid black
+}
+
+/* Define the grid cell styles */
+.cell {
+    border: 1px solid gray;
+    min-width: 10px;
+    min-height: 20px;
+    display: inline-block;
+}
