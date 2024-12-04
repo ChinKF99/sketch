@@ -1,10 +1,27 @@
-const grid = document.querySelector('.grid');
+const container = document.querySelector('.container');
 
-// Use a nested for loop to create the grid cells
-for (let i = 0; i < 16; i++) {
-  for (let j = 0; j < 16; j++) {
-    const cell = document.createElement('div');
-    cell.classList.add('cell');
-    grid.appendChild(cell);
-  }
+function createGrid() {
+    for (let i = 0; i < 16; i++) {        
+        const createDivRow = document.createElement("div");
+        createDivRow.classList.add("gridrow")
+        container.appendChild(createDivRow);
+    }
+    
 }
+
+function createGridCells() {  
+    const divRows = document.querySelectorAll(".gridrow");    
+    //iterate over each one of them
+    divRows.forEach(divRow =>{
+        //and append to it a new div for as many times as the value fetched from the input element
+        for(let i=0;i < 16; i++){
+          const createDivCell = document.createElement("div");
+          divRow.appendChild(createDivCell);
+        }        
+    });       
+}
+
+createGrid()
+createGridCells()
+
+// https://stackoverflow.com/questions/78538355/creating-a-grid-using-javascript-without-displaygrid
