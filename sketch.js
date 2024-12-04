@@ -1,30 +1,10 @@
-const container = document.querySelector("#container");
-//let rows = document.getElementsByClassName("gridRow");
-//let cells = document.getElementsByClassName("cell");
+const grid = document.querySelector('.grid');
 
-
-function createGrid(){
-    createRow(16)
-    //createColumn(16)
+// Use a nested for loop to create the grid cells
+for (let i = 0; i < 16; i++) {
+  for (let j = 0; j < 16; j++) {
+    const cell = document.createElement('div');
+    cell.classList.add('cell');
+    grid.appendChild(cell);
+  }
 }
-
-function createRow(rowNum){
-    for (let r=0 ; r < rowNum; r++){
-        let row = document.createElement("div")
-        row.classList.add("gridRow")
-        container.appendChild(row)
-    }
-}
-
-function createColumn(cellNum){
-    for (let i=0 ; i < rows.length; i++){
-        for (let c = 0; c < cellNum; c++){
-            let newCell = document.createElement("div")
-            newCell.classList.add("cell")
-            rows[c].appendChild(newCell)
-
-        }
-    }
-}
-
-createGrid()
