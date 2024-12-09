@@ -1,42 +1,38 @@
-const container = document.querySelector('.container')
-const input= document.querySelector(".input")
-const create = document.querySelector(".createGrid")
-const reset = document.querySelector(".reset")
+let color = "black"
 
+function populateBoard(size){
+    let board = document.querySelector(".board")
+    let squares = board.querySelectorAll("div")
+    squares.forEach((div)=> div.remove())
+    board.style.gridTemplateColumns = `repeat(${size},1fr)`
+    board.style.gridTemplateRows = `repeat(${size},1fr)`
+    let amount = size * size
 
-create.addEventListener("click",createGrid)
-create.addEventListener("click",createGridCells)
-// reset.addEventListener("click",()=>{
-//     const gridRow = document.querySelector("gridRow")
-//     gridRow.remove()
-// })
+    for (let i=0; i <amount; i++){
+        let square = document.createElement("div")
+        square.addEventListener("mouseover",colorSquare)
+        square.style.backgroundColor = "white"
+        board.insertAdjacentElement("beforeend",square)
+    }
+}
 
-function createGrid(gridNum) {
-    gridNum = Number(input.value)
-    for (let i = 0; i < gridNum; i++) {        
-        const createDivRow = document.createElement("div");
-        createDivRow.classList.add("gridRow")
-        container.appendChild(createDivRow);
-    }}
+populateBoard(16)
 
-function createGridCells(gridNum) {  
-    gridNum = Number(input.value)
-    const divRows = document.querySelectorAll(".gridRow");    
-    //iterate over each one of them
-    divRows.forEach(divRow =>{
-        //and append to it a new div for as many times as the value fetched from the input element
-        for(let i=0;i < gridNum; i++){
-          const createDivCell = document.createElement("div");
-          createDivCell.classList.add("cell")
-          divRow.appendChild(createDivCell);
-        }        
-    });
+function changeSize(input){
+    if (input >=2 && input<=100){
+        populateBoard(input)
+    } 
+    else{
+        console.log("Too many sqaures")
+    }
+}
 
-    const gridCell = document.querySelectorAll(".cell")
-    gridCell.forEach(cell=>{
-        cell.addEventListener("mouseover",()=>{
-            cell.style.backgroundColor = "yellow"
-        })
-    })}
+function colorSquare(){
+    this.style.backgroundColor = color
+}
 
+function changeColor(choice){
+    color = choice
+    
+}
 
