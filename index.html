@@ -6,24 +6,27 @@
   </head>
   <body>
     <div class="container">
-      <div class="board"></div>
-      <div class="buttons">
-        <button onclick="changeColor('black')">Black</button>
-        <button onclick="changeColor('white')">erasor</button>
-        <button onclick="changeColor('gray')">gray</button>
-        <button>reset</button>
-      </div>
-      <div>
-        <input type="text" 
-        placeholder="Size of Board" 
-        value="16" 
-        onchange="changeSize(this.value)"
-        >
-        <button>Set Size</button>
+      <div class="title">SketchPad</div>
+      <div class="mode">Mode: Coloring</div>
+      <div class="content">
+        <div class="board"></div>
+        <div class="buttons">
+          <button onclick="changeColor('black')">Black</button>
+          <button onclick="changeColor('white')">Erasor</button>
+          <button onclick="changeColor('gray')">Gray</button>
+          <button onclick="resetBoard()">Reset</button>
+        </div>
+        <div>
+          <input type="text" 
+          placeholder="Size of Board" 
+          value="16" 
+          onchange="changeSize(this.value)"
+          >
+          <button>Set Size</button>
+        </div>
+        <div class="error">Input must be between 2 and 100</div>
       </div>
     </div>
   </body>
   <script src="sketch.js"></script>
 </html>
-
-<!-- https://www.youtube.com/watch?v=dyhuaXeuyGo&t=683s -->
